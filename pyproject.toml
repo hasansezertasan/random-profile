@@ -1,0 +1,87 @@
+[tool.poetry]
+name = "random-profile"
+version = "0.1.0"
+description = "Random profile generator for designers. Name, surname, biography, username..."
+authors = ["Hasan Sezer Taşan <hasansezertasan@gmail.com>"]
+readme = "README.md"
+maintainers = ["Hasan Sezer Taşan <hasansezertasan@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.8, <4.0"
+litestar = "^2.6.1"
+python-dotenv = "1.0.0"
+fastapi = { extras = ["all"], version = "0.100.0" }
+OpenAPIPages = "0.1.0"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.2"
+mypy = "^1.8.0"
+ruff = "0.2.1"
+djlint = "1.34.1"
+pre-commit = ">=2.20.0, <4.0.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.0"
+
+[tool.ruff]
+# Run `ruff linter` command to see all available linters and their descriptions
+target-version = "py38"
+show-fixes = true
+fix = true
+
+[tool.ruff.lint]
+ignore-init-module-imports = true
+select = [
+  "E4",
+  "E7",
+  "E9",
+  "E",  # pycodestyle errors
+  "F",  # pyflakes
+  "W",  # pycodestyle warnings
+  "I",  # isort
+  "B9",
+  "B",  # flake8-bugbear
+  "C",  # flake8-comprehensions
+  "UP", # pyupgrade
+]
+ignore = [
+  "B008", # do not perform function calls in argument defaults
+  "C901", # too complex
+  "E501", # line too long, handled by black
+  "F401", # imported but unused
+  "E402", # module level import not at top of file
+  "E712", # comparison to True should be 'if cond is True:' or 'if cond:'
+  "F821", # undefined name
+  "W191", # indentation contains tabs
+  "E101", # indentation contains mixed spaces and tabs
+  "C408", # Unnecessary list comprehension - rewrite as a for loop
+]
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.isort]
+known-third-party = ["openapipages"]
+
+[tool.mypy]
+strict = true
+pretty = true
+
+
+[tool.poe.tasks]
+run = "uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"

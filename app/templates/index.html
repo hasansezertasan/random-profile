@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        [x-cloak] {
+            display: none
+        }
+        </style>
+        <title>Random Profile</title>
+        <!-- Include the Alpine library on your page -->
+        <script src="https://unpkg.com/alpinejs" defer></script>
+        <!-- Include the TailwindCSS library on your page -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="flex items-start justify-center h-full bg-gray-50">
+        <div class="flex items-center justify-center w-full max-w-full">
+            <!-- Element Here -->
+            <div class="rounded-lg overflow-hidden border border-neutral-200/60 bg-white text-neutral-700 shadow-sm w-[580px]">
+                <div class="relative">
+                    <img src="{{ data.profile_picture }}"
+                         class="w-full h-auto"
+                         height="200"
+                         width="200"
+                         alt="Profile Picture">
+                </div>
+                <div class="p-7">
+                    <h2 class="mb-2 text-lg font-bold leading-none tracking-tight">{{ data.full_name }}</h2>
+                    <p class="mb-5 text-neutral-500">{{ data.biography }}</p>
+                </div>
+                <div class="inline-block min-w-full overflow-x-auto">
+                    <table class="min-w-full divide-y divide-neutral-200">
+                        <tbody class="divide-y divide-neutral-200">
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">First Name</td>
+                                <td class="px-5 py-4 text-sm whitespace-nowrap">{{ data.first_name }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Last Name</td>
+                                <td class="px-5 py-4 text-sm whitespace-nowrap">{{ data.last_name }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Biography</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.biography }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Username</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.username }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Password</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.password }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">E-mail</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.email }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Address</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.address }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Profession</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.profession }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Birth Date</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.date_of_birth }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Age</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.age }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Domain</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.domain }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Profile Picture Path</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.profile_picture }}</td>
+                            </tr>
+                            <tr class="text-neutral-800">
+                                <td class="px-5 py-4 text-sm font-medium whitespace-nowrap">Website</td>
+                                <td class="px-5 py-4 text-sm whitespace-wrap">{{ data.website }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
