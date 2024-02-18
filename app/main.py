@@ -16,8 +16,8 @@ app = FastAPI(**API_CONFIG)
 templates = Jinja2Templates(directory=os.path.join(basedir, "templates"))
 
 
-@app.get("/")
-async def read_root(request: Request) -> str:
+@app.get("/", include_in_schema=False)
+async def root(request: Request) -> str:
     data = Profile(
         first_name="Hasan Sezer",
         last_name="Taşan",
