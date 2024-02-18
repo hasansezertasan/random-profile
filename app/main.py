@@ -7,28 +7,12 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from openapipages import Elements, RapiDoc, ReDoc, Scalar, SwaggerUI
 
+from .config import API_CONFIG
 from .schemas import Profile
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-app = FastAPI(
-    title="Random Profile",
-    description="Random profile generator for designers. Name, surname, biography, username...",
-    version="0.0.1",
-    contact={
-        "name": "Hasan Sezer Taşan",
-        "url": "http://www.hasansezertasan.com",
-        "email": "hasansezertasan@gmail.com",
-    },
-    responses={
-        404: {
-            "description": "Not found",
-        },
-        500: {
-            "description": "Internal Server Error",
-        },
-    },
-)
+app = FastAPI(**API_CONFIG)
 templates = Jinja2Templates(directory=os.path.join(basedir, "templates"))
 
 
