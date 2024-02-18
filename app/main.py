@@ -52,16 +52,6 @@ async def read_root(request: Request) -> str:
     return templates.TemplateResponse("index.html", {"request": request, "data": data})
 
 
-@app.get("/swaggerui", response_class=HTMLResponse, include_in_schema=False)
-def get_swaggerui() -> str:
-    return SwaggerUI(title="Swagger UI").render()
-
-
-@app.get("/redoc", response_class=HTMLResponse, include_in_schema=False)
-def get_redoc() -> str:
-    return ReDoc(title="ReDoc").render()
-
-
 @app.get("/scalar", response_class=HTMLResponse, include_in_schema=False)
 def get_scalar() -> str:
     return Scalar(title="Scalar").render()
