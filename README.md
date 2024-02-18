@@ -13,8 +13,6 @@ Random profile generator for designers. Name, surname, biography, username...
   - [Features](#features)
   - [About](#about)
   - [How to run](#how-to-run)
-    - [Requirements](#requirements)
-    - [Steps](#steps)
   - [API Documentation](#api-documentation)
   - [Disclaimer](#disclaimer)
   - [Contributing](#contributing)
@@ -28,18 +26,6 @@ Random profile generator for designers. Name, surname, biography, username...
 ## About
 
 ## How to run
-
-### Requirements
-
-- Docker
-- Docker Compose
-
-### Steps
-
-1. Clone the repository
-2. Run `docker-compose up --build`
-3. Go to `http://localhost:8000/docs` to see the API documentation
-4. Enjoy!
 
 ## API Documentation
 
