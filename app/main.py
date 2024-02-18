@@ -1,16 +1,18 @@
 import datetime
 import os
-from typing import List, Union
+import secrets
+import string
 
-from fastapi import Body, FastAPI, Request, status
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from openapipages import Elements, RapiDoc, ReDoc, Scalar, SwaggerUI
+from openapipages import Elements, RapiDoc, Scalar
 
 from .config import API_CONFIG
 from .schemas import Profile
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+ALPHABET = string.ascii_letters + string.digits + "-_"
 
 app = FastAPI(**API_CONFIG)
 templates = Jinja2Templates(directory=os.path.join(basedir, "templates"))
@@ -22,7 +24,7 @@ async def root(request: Request) -> str:
         first_name="Hasan Sezer",
         last_name="Taşan",
         username="hasansezertasan",
-        password="123456",
+        password="".join(secrets.choice(ALPHABET) for i in range(20)),
         email="hasansezertasan@gmail.com",
         phone_number="1234567890",
         profession="Software Developer",
