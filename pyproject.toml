@@ -10,10 +10,10 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = ">=3.8, <4.0"
 python-dotenv = "1.0.0"
-litestar = "^2.0.0"
+litestar = { extras = ["standard", "pydantic"], version = "^2.0.0" }
 fastapi = { extras = ["all"], version = "0.100.0" }
 OpenAPIPages = "0.1.0"
-faker = "^23.2.1"
+faker = "^23.3.0"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.2"
