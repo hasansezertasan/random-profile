@@ -1,7 +1,4 @@
-import datetime
 import os
-import secrets
-import string
 
 from litestar import Litestar, MediaType, get
 from litestar.contrib.jinja import JinjaTemplateEngine
@@ -10,31 +7,14 @@ from litestar.response import Template
 from litestar.template.config import TemplateConfig
 from openapipages import Scalar
 
-from .config import API_CONFIG
+from .config import API_CONFIG, data
 from .schemas import Profile
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-ALPHABET = string.ascii_letters + string.digits + "-_"
 
 
 @get(path="/", include_in_schema=False)
 async def root() -> Template:
-    data = Profile(
-        first_name="Hasan Sezer",
-        last_name="Taşan",
-        username="hasansezertasan",
-        password="".join(secrets.choice(ALPHABET) for i in range(20)),
-        email="hasansezertasan@gmail.com",
-        phone_number="1234567890",
-        profession="Software Developer",
-        date_of_birth=datetime.date(1999, 6, 19),
-        city="Ankara",
-        address="Ankara, Turkey",
-        biography="I am a software developer. I am interested in web development, and web scraping.",
-        interests=["Web Development", "Web Scraping"],
-        profile_picture="https://avatars.githubusercontent.com/u/13135006?v=4",
-        website="http://www.hasansezertasan.com",
-    )
     return Template(template_name="index.html", context={"data": data})
 
 

@@ -1,18 +1,14 @@
-import datetime
 import os
-import secrets
-import string
 
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from openapipages import Elements, RapiDoc, Scalar
 
-from .config import API_CONFIG
+from .config import API_CONFIG, data
 from .schemas import Profile
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-ALPHABET = string.ascii_letters + string.digits + "-_"
 
 app = FastAPI(**API_CONFIG)
 templates = Jinja2Templates(directory=os.path.join(basedir, "templates"))
@@ -20,22 +16,6 @@ templates = Jinja2Templates(directory=os.path.join(basedir, "templates"))
 
 @app.get("/", include_in_schema=False)
 async def root(request: Request) -> str:
-    data = Profile(
-        first_name="Hasan Sezer",
-        last_name="Taşan",
-        username="hasansezertasan",
-        password="".join(secrets.choice(ALPHABET) for i in range(20)),
-        email="hasansezertasan@gmail.com",
-        phone_number="1234567890",
-        profession="Software Developer",
-        date_of_birth=datetime.date(1999, 6, 19),
-        city="Ankara",
-        address="Ankara, Turkey",
-        biography="I am a software developer. I am interested in web development, and web scraping.",
-        interests=["Web Development", "Web Scraping"],
-        profile_picture="https://avatars.githubusercontent.com/u/13135006?v=4",
-        website="http://www.hasansezertasan.com",
-    )
     return templates.TemplateResponse("index.html", {"request": request, "data": data})
 
 

@@ -30,6 +30,7 @@ pytest = "^7.4.0"
 # Run `ruff linter` command to see all available linters and their descriptions
 target-version = "py38"
 show-fixes = true
+extend-include = ["*.ipynb"]
 fix = true
 
 [tool.ruff.lint]
@@ -76,12 +77,15 @@ line-ending = "auto"
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
-[tool.ruff.lint.isort]
-known-third-party = ["openapipages"]
-
 [tool.mypy]
 strict = true
 pretty = true
+
+[tool.djlint]
+profile="jinja"
+format_css=true
+format_js=true
+extension=".html"
 
 
 [tool.poe.tasks]
