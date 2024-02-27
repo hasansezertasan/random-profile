@@ -1,14 +1,11 @@
 # Random Profile
 
-Random profile generator for designers. Name, surname, biography, username...
+Random profile generator for designers and developers. Name, surname, biography, username...
 
-- [Contact](mailto:hasansezertasan@gmail.com)
-- Would you like to support? [Yes](https://github.com/hasansezertasan) - [No](https://www.google.com/search?q=a+dumb+priest+never+got+a+parish)
-
-## Table of Contents
+<details>
+  <summary>Table of Contents</summary>
 
 - [Random Profile](#random-profile)
-  - [Table of Contents](#table-of-contents)
   - [Screenshots](#screenshots)
   - [Features](#features)
   - [About](#about)
@@ -19,9 +16,15 @@ Random profile generator for designers. Name, surname, biography, username...
   - [Author](#author)
   - [License](#license)
 
+</details>
+
 ## Screenshots
 
 ## Features
+
+API based on OpenAPI standard
+
+Modern user interface built with Tailwind CSS
 
 ## About
 
@@ -33,7 +36,7 @@ FastAPI provides a great documentation interface. You can access it by going to 
 
 ## Disclaimer
 
-- The main inspiration for this project was [burakgarci/rastgele-profil](https://github.com/burakgarci/rastgele-profil)
+The main inspiration for this project was [burakgarci/rastgele-profil](https://github.com/burakgarci/rastgele-profil)
 
 ## Contributing
 
@@ -41,7 +44,11 @@ If you would like to contribute to this project, please open an issue or submit 
 
 ## Author
 
-- [hasansezertasan](https://www.github.com/hasansezertasan), It's me :wave:
+[Hasan Sezer Taşan](https://www.github.com/hasansezertasan), It's me :wave:
+
+[Contact](mailto:hasansezertasan@gmail.com) with me if you have any questions.
+
+Would you like to support? [Yes](https://github.com/hasansezertasan) - [No](https://www.google.com/search?q=a+dumb+priest+never+got+a+parish)
 
 ## License
 
