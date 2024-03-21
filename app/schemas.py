@@ -1,7 +1,9 @@
+# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
+# Copyright (C) 2024 <hasansezertasan@gmail.com>
 import datetime
 from typing import List
 
-from pydantic import BaseModel, Field, computed_field
+from pydantic import BaseModel, computed_field
 
 
 class Profile(BaseModel):
@@ -78,8 +80,8 @@ class Profile(BaseModel):
 
     @computed_field
     def age(self) -> int:
-        today = datetime.date.today()
-        age = (
+        today = datetime.datetime.now(tz=datetime.timezone.utc).date()
+        return (
             today.year
             - self.date_of_birth.year
             - (
@@ -87,7 +89,6 @@ class Profile(BaseModel):
                 < (self.date_of_birth.month, self.date_of_birth.day)
             )
         )
-        return age
 
     @computed_field
     def full_name(self) -> str:

@@ -1,0 +1,18 @@
+# This file doesn't configure anything, it's only for documentation purposes.
+github:
+  - description: Random profile generator for designers. Name, surname, biography, username...
+  - website:
+  - topics:
+      - web-application
+      - python
+      - tutorial
+      - clone
+      - faker
+      - learning-materials
+      - learning-material
+      - fake-data
+      - fastapi
+      - random-profile
+      - fastapi-app
+      - litestar
+  - include-on-home-page:

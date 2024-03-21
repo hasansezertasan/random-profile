@@ -1,4 +1,6 @@
-import os
+# Copyright 2024 Hasan Sezer Taşan <hasansezertasan@gmail.com>
+# Copyright (C) 2024 <hasansezertasan@gmail.com>
+from pathlib import Path
 
 from litestar import Litestar, MediaType, get
 from litestar.contrib.jinja import JinjaTemplateEngine
@@ -8,9 +10,8 @@ from litestar.template.config import TemplateConfig
 from openapipages import Scalar
 
 from .config import API_CONFIG, data
-from .schemas import Profile
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = Path(__file__).parent
 
 
 @get(path="/", include_in_schema=False)
@@ -26,7 +27,7 @@ def get_scalar() -> str:
 app = Litestar(
     route_handlers=[root, get_scalar],
     template_config=TemplateConfig(
-        directory=os.path.join(basedir, "templates"),
+        directory=basedir / "templates",
         engine=JinjaTemplateEngine,
     ),
     openapi_config=OpenAPIConfig(**API_CONFIG),
